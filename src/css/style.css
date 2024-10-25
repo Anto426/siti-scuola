@@ -14,7 +14,7 @@
   color: var(--default-item-color);
   background: var(--default-bg-gradient);
   background-size: 400% 400%;
-  animation: animationbg 25s alternate infinite;
+  animation: gradient 15s ease infinite;
   height: 100vh;
   width: 100vw;
 }
@@ -150,180 +150,164 @@
 }
 
 
-
-
-
-
-
 /*......................................................................*/
 
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 .anto-body {
-    font-family: Arial, sans-serif;
-    background: var(--default-bg-gradient);
-    background-size: 300%;
-    animation: gradient 15s ease infinite;
-    color: var(--default-item-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: var(--default-bg-gradient);
+  background-size: 300%;
+  animation: gradient 15s ease infinite;
+  color: var(--default-item-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .anto-title {
-    font-weight: bold;
-    width: 80%;
-    text-align: center;
-    background-color: var(--default-prymarybox-bg);
-    border-radius: var(--border-radius);
-    padding: var(--padding-standard) calc(var(--padding-standard) * 1.5);
-    margin-bottom: 20px;
-    color: var(--default-item-color);
+  font-weight: bold;
+  width: 80%;
+  text-align: center;
+  background-color: var(--default-prymarybox-bg);
+  border-radius: var(--border-radius);
+  padding: var(--padding-standard) calc(var(--padding-standard) * 1.5);
+  margin-bottom: 20px;
+  color: var(--default-item-color);
 }
 
 .anto-bigcontainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: var(--container-width);
-    min-width: var(--container-width);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: var(--container-width);
+  min-width: var(--container-width);
 }
 
 .anto-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    max-width: var(--container-width);
-    padding: var(--padding-standard);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  max-width: var(--container-width);
+  padding: var(--padding-standard);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  margin: 0;
 }
 
 .anto-container::-webkit-scrollbar {
-    display: none; /* Nasconde la scrollbar */
+  display: none; /* Nasconde la scrollbar */
 }
 
 .anto-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    background-color: var(--default-prymarybox-bg);
-    color: var(--default-item-color);
-    padding: calc(var(--padding-standard) * 2);
-    border-radius: var(--border-radius);
-    min-width: 90%;
-    margin: 0 10px;
-    scroll-snap-align: center;
-    text-align: start;
-    min-height: 35vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: var(--default-prymarybox-bg);
+  color: var(--default-item-color);
+  padding: calc(var(--padding-standard) * 2);
+  border-radius: var(--border-radius);
+  min-width: 90%;
+  margin: 0 10px;
+  scroll-snap-align: center;
+  text-align: start;
+  min-height: 35vh;
 }
 
-.anto-containerlink{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: var(--padding-standard);
+.anto-containerlink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--padding-standard);
 }
 
 .containerlink0 {
-    display: flex;
-    justify-content: center;
-    
+  display: flex;
+  justify-content: center;
 }
 
-
-
-.anto-link {
-    text-decoration: none;
-    color: var(--secondary-color);
-    background-color: var(--default-prymarybox-bg);
-    padding: 12px 24px;
-    margin: 10px;
-    border-radius: var(--border-radius);
-    display: inline-block;
-    transition: background-color var(--transition-duration) ease;
-}
-
-.anto-link0 {
-  text-decoration: none;
+.anto-link, .anto-link0 {
   color: var(--secondary-color);
+  background-color: var(--default-prymarybox-bg);
   padding: 12px 24px;
   margin: 10px;
   border-radius: var(--border-radius);
   display: inline-block;
   transition: background-color var(--transition-duration) ease;
+  text-decoration: none;
 }
 
-
-.anto-link:hover {
-    background-color: var(--background-gradient);
+.anto-link:hover, .anto-link:focus, .anto-link0:hover, .anto-link0:focus {
+  background-color: var(--secondary-color);
+  color: var(--default-prymarybox-bg);
+  outline: 2px solid var(--secondary-color);
 }
 
 #anto-Autore {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin: 0 10px;
 }
 
 .anto-data {
-    display: flex;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 
 #anto-pfp {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin-right: 20px;
-    border: 2px solid var(--secondary-color);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-right: 20px;
+  border: 2px solid var(--secondary-color);
 }
 
 p {
-    font-size: large;
-    margin: 10px;
+  font-size: large;
+  margin: 10px;
 }
 
-
+.textbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--default-prymarybox-bg);
+  color: var(--default-item-color);
+  padding: calc(var(--padding-standard) * 2);
+  border-radius: var(--border-radius);
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 
 
 
 
 /*......................................................................*/
-
-
-
-@keyframes animationbg {
-  from {
-    background-position: 0% 50%;
-  }
-
-  to {
-    background-position: 100% 50%;
-  }
-
-}
 
 
 @keyframes fadeIn {
