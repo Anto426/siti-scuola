@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riconoscimento Vocale AI</title>
+    <link rel="stylesheet" href="./../src/css/style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="./../index.html#cos-e-ai">Cos'è l'AI</a></li>
+                <li><a href="./../index.html#come-funziona">Come funziona</a></li>
+                <li><a href="./../index.html#esempi">Esempi</a></li>
+                <li><a href="./../index.html#tutorial">Tutorial</a></li>
+                <li><a href="./../index.html#etica">Etica</a></li>
+                <li><a href="./../index.html#faq">FAQ</a></li>
+                <li><a href="#riconoscimento-vocale">Riconoscimento Vocale</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Sezione Riconoscimento Vocale -->
+        <section id="riconoscimento-vocale" class="content-section">
+            <h1>Riconoscimento Vocale AI</h1>
+            <p>Questa sezione ti permette di provare il riconoscimento vocale. Clicca sul pulsante per iniziare a parlare e l'AI trascriverà la tua voce in testo.</p>
+            
+            <!-- Area Microfono Animato -->
+            <div class="microphone-container">
+                <div class="microphone"></div> <!-- Microfono pulsante -->
+                <p id="microphone-status">In ascolto...</p> <!-- Testo sotto il microfono -->
+            </div>
+
+            <div id="riconoscimento-vocale-area">
+                <button id="start-button">Avvia Riconoscimento Vocale</button>
+                <br>
+                <p id="status"></p>
+                <div id="output-text">
+                    <h2>Testo riconosciuto:</h2>
+                    <p id="recognized-text">Il testo riconosciuto apparirà qui...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Introduzione all'Intelligenza Artificiale | Sito educativo per scuole</p>
+    </footer>
+
+    <!-- Script per il riconoscimento vocale -->
+    <script src="script.js"></script>
+</body>
+</html>
+
