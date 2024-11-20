@@ -5,8 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Generazione di Testo AI</title>
         <link rel="stylesheet" href="./../src/css/style.css">
+        <script src="./../src/js/chat.js"></script>
     </head>
-    <body>
+    <body onload="load()">
         <!-- Header -->
         <header>
             <nav class="navbar">
@@ -46,26 +47,18 @@
             <section id="generazione-test">
                 <h1>Generazione di Testo AI</h1>
                 <div class="chat-container">
-                    <div class="chat-message-user">
-
-                    </div>
+                    <div id="chat-container"
+                    class="message-container">
+                </div>
                 </div>
                 <br>
                 <!-- Input Section -->
                 <section id="input-area">
-                    <input type="text" id="user-input" placeholder="Inserisci qui...">
+                    <input type="text" id="user-input"
+                        placeholder="Inserisci qui...">
                     <button id="send-button">Invia</button>
                 </section>
             </section>
         </main>
-        <!-- Footer -->
-        <footer>
-            <p>
-                &copy; 2024 Introduzione all'Intelligenza Artificiale | Sito
-                educativo per scuole
-            </p>
-        </footer>
-        <!-- Script JS -->
-        <script src="script.js"></script>
     </body>
 </html>
