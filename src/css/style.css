@@ -73,18 +73,29 @@ header nav ul li a:hover {
 }
 
 /* Pulsante Comune */
+
+.buttonimg {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
 .button {
     display: inline-block;
     background-color: var(--color-primary);
     color: #fff;
     font-size: 1.2rem;
     padding: 12px 30px;
-    border-radius: 30px;
+    border-radius: 15px;
     text-decoration: none;
     text-align: center;
     transition: background-color 0.3s, transform 0.3s;
     margin-top: 20px;
 }
+
+
 
 .button:hover {
     background-color: var(--color-primary-light);
@@ -105,7 +116,8 @@ section {
 }
 
 /* Titoli */
-h1, h2 {
+h1,
+h2 {
     font-size: 2rem;
     margin-bottom: 15px;
     color: var(--color-text);
@@ -185,7 +197,8 @@ footer {
 }
 
 /* Riconoscimento Vocale & Generazione di Testo AI */
-#riconoscimento-vocale, #generazione-test {
+#riconoscimento-vocale,
+#generazione-test {
     padding: 30px;
     width: 50vw;
     background-color: #fff;
@@ -195,13 +208,15 @@ footer {
     text-align: center;
 }
 
-#riconoscimento-vocale h1, #generazione-test h1 {
+#riconoscimento-vocale h1,
+#generazione-test h1 {
     font-size: 2.5rem;
     color: var(--color-text);
     margin-bottom: 20px;
 }
 
-#riconoscimento-vocale p, #generazione-test p {
+#riconoscimento-vocale p,
+#generazione-test p {
     font-size: 1.1rem;
     color: #666;
     margin-bottom: 25px;
@@ -209,7 +224,7 @@ footer {
 
 /* Campo di input */
 #user-input {
-    width: 90%;
+    width: 70%;
     padding: 12px 20px;
     font-size: 1rem;
     border: 2px solid var(--color-border);
@@ -346,8 +361,8 @@ button:hover {
     border-radius: 12px;
     background-color: #fff;
     box-shadow: 0 4px 15px var(--color-box-shadow);
-    height: 34vh;
-    max-height: 34vh;
+    height: 56vh;
+    max-height: 56vh;
     overflow-y: auto;
 }
 
@@ -375,24 +390,24 @@ button:hover {
     scroll-behavior: smooth;
 }
 
-
-
-.users-message,
+.user-message,
 .assistant-message,
-.typing-indicator {
+.typing-message,
+.error-message {
     display: flex;
     align-items: center;
     padding: 12px 20px;
     border-radius: 12px;
     box-shadow: 0 4px 15px var(--color-box-shadow);
     max-width: 60%;
-    overflow-wrap: break-word; /* Updated for better compatibility */
+    overflow-wrap: break-word;
+    /* Updated for better compatibility */
     font-size: 16px;
     line-height: 1.5;
 }
 
 /* User's message */
-.users-message {
+.user-message {
     background-color: #f4f7fb;
     color: var(--color-text);
     align-self: flex-start;
@@ -406,25 +421,152 @@ button:hover {
     flex-direction: row-reverse;
 }
 
-.typing-indicator {
+.typing-message {
     background-color: #50fa7b;
+    color: #fff;
+    align-self: flex-end;
+    flex-direction: row-reverse;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.typing-message::after {
+    content: " . . .";
+    animation: typing 1.5s infinite;
+}
+
+@keyframes typing {
+    0% {
+        content: " .";
+    }
+
+    33% {
+        content: " . .";
+    }
+
+    66% {
+        content: " . . .";
+    }
+
+    100% {
+        content: " .";
+    }
+}
+
+.direct-assistant-message {
+    display: flex;
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.direct-user-message {
+    display: flex;
+    align-self: flex-start;
+    flex-direction: row;
+}
+
+.direct-typing-message {
+    display: flex;
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.direct-error-message {
+    display: flex;
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.error-message {
+    background-color: #ff000d;
     color: #fff;
     align-self: flex-end;
     flex-direction: row-reverse;
 }
 
+/* Avatar styling */
+/* Avatar styling with hover effect */
 .message-avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    margin: 0 10px;
+    margin: 0 12px;
+    /* Spacing around the avatar */
     object-fit: cover;
+    /* Ensure the image fits well within the container */
+    display: inline-block;
+    /* Align avatar properly */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth transition for hover effect */
 }
 
+.message-avatar:hover {
+    transform: scale(1.1);
+    /* Slightly enlarge the avatar on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* Add a subtle shadow effect on hover */
+}
+
+/* Text styling */
 .message-text {
     max-width: 100%;
+    /* Ensure the text does not exceed the container width */
     word-wrap: break-word;
+    /* Ensure long words break correctly */
+    line-height: 1.6;
+    /* Improved readability with a slightly larger line height */
+    font-size: 16px;
+    /* Consistent font size */
+    font-family: 'Arial', sans-serif;
+    /* Use a clean, readable font */
+    color: #333;
+    /* Ensure good contrast for readability */
+    white-space: pre-wrap;
+    /* Preserve whitespace formatting (like line breaks) */
+    padding-right: 20px;
+    /* Add space on the right side for better padding */
+    text-align: left;
+    /* Align text to the left */
 }
+
+/* Handling links within the text */
+.message-text a {
+    color: #007bff;
+    /* Use a color for links */
+    text-decoration: none;
+    /* Remove underline from links */
+    font-weight: bold;
+    /* Make links stand out */
+}
+
+.message-text a:hover {
+    text-decoration: underline;
+    /* Underline links on hover */
+}
+
+/* For standard text formatting (handling paragraphs, lists, etc.) */
+.message-text p {
+    margin: 10px 0;
+    /* Add margin between paragraphs */
+}
+
+.message-text ul,
+.message-text ol {
+    padding-left: 20px;
+    /* Indentation for lists */
+}
+
+.message-text li {
+    margin: 5px 0;
+    /* Space between list items */
+}
+
+
+
 
 /* Layout Responsivo */
 @media (max-width: 768px) {
@@ -453,7 +595,8 @@ button:hover {
         margin-bottom: 40px;
     }
 
-    h1, h2 {
+    h1,
+    h2 {
         font-size: 1.6rem;
     }
 

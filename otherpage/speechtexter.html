@@ -5,9 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Riconoscimento Vocale AI</title>
         <link rel="stylesheet" href="./../src/css/style.css">
-        <script src="./../src/js/spech.js"></script>
     </head>
-    <body onload="startSpeechRecognition()">
+    <body>
 
         <!-- Header -->
         <header>
@@ -41,7 +40,8 @@
                 </div>
 
                 <div id="riconoscimento-vocale-area">
-                    <button id="start-button">Avvia Riconoscimento
+                    <button id="start-button" class="button">Avvia
+                        Riconoscimento
                         Vocale</button>
                     <br>
                     <p id="status"></p>
@@ -53,6 +53,11 @@
                 </div>
             </section>
         </main>
-
+        <script type="module">
+            import { startSpeechRecognition } from "./../src/js/spech.js";
+            window.addEventListener("DOMContentLoaded", () => {
+                startSpeechRecognition();
+            });
+        </script>
     </body>
 </html>

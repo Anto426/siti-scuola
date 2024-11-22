@@ -1,6 +1,7 @@
+import { addMessage } from './chat.js';
+
 function startSpeechRecognition() {
     const startButton = document.getElementById('start-button');
-    const messageContainer = document.getElementById('transition-container');
     const microphone = document.getElementById('microphoneanimation');
     const microphonestatus = document.getElementById('microphone-status');
 
@@ -30,21 +31,8 @@ function startSpeechRecognition() {
             const newMessage = document.createElement('div');
             newMessage.className = 'users-message';
 
-            const avatar = document.createElement('img');
-            avatar.src = './../src/media/useravatar.png';
-            avatar.alt = 'User Avatar';
-            avatar.className = 'message-avatar';
+            addMessage({ role: 'user', content: transcript }, 'transition-container');
 
-            const textContainer = document.createElement('div');
-            textContainer.className = 'message-text';
-            textContainer.textContent = transcript;
-
-            newMessage.appendChild(avatar);
-            newMessage.appendChild(textContainer);
-
-
-            messageContainer.appendChild(newMessage);
-            messageContainer.scrollTop = messageContainer.scrollHeight;
         };
 
         recognition.onerror = (event) => {
@@ -60,4 +48,6 @@ function startSpeechRecognition() {
 
 
 }
+
+export { startSpeechRecognition };
 

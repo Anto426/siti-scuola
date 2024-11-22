@@ -12,11 +12,12 @@
             <nav class="navbar">
                 <ul>
                     <li><a href="./../index.html#cos-e-ai">Cos'è l'AI</a></li>
-                    <li><a href="./../index.html#come-funziona">Come funziona</a></li>
+                    <li><a href="./../index.html#come-funziona">Come
+                            funziona</a></li>
                     <li><a href="./../index.html#esempi">Esempi</a></li>
                     <li><a href="./../index.html#etica">Etica</a></li>
                     <li><a href="./../index.html#faq">FAQ</a></li>
-                    <li><a href="#riconoscimento-vocale">Riconoscimento Vocale</a></li>
+                    <li><a href="#generazione-test">Generazione-test</a></li>
                 </ul>
             </nav>
         </header>
@@ -27,18 +28,22 @@
                 <div class="chat-container">
                     <div id="chat-container" class="message-container"></div>
                 </div>
-                <br>
                 <!-- Input Section -->
                 <section id="input-area">
                     <input type="text" id="user-input" placeholder="Inserisci qui...">
-                    <button id="send-button">Invia</button>
+                    <button class="button" id="send-button">
+                        <img class="buttonimg" src="./../src/media/send.png" alt="Send">
+                    </button>
+                    <button class="button" id="clear-button">
+                        <img class="buttonimg" src="./../src/media/cestino.png" alt="Send">
+                    </button>
                 </section>
             </section>
         </main>
         <script type="module">
-            import { load } from "./../src/js/chat.js";
+            import { loadChat } from "./../src/js/chat.js";
             window.addEventListener("DOMContentLoaded", () => {
-                load();
+                loadChat();
             });
         </script>
     </body>
