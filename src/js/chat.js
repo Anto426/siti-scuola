@@ -1,4 +1,3 @@
-
 import { HfInference } from 'https://cdn.jsdelivr.net/npm/@huggingface/inference@2.8.1/+esm';
 
 
@@ -9,13 +8,15 @@ async function load() {
 
     const initialPrompt = {
         role: "system",
-        content: "Ti chiamerai Luna. Rispondi agli utenti con il tuo nome."
+        content: "Ti chiamerai Luna, un'assistente virtuale amichevole e competente. Rispondi agli utenti con il tuo nome e fornisci risposte chiare e utili."
     };
 
     const conversation = [initialPrompt];
 
     button.addEventListener("click", async () => {
-        let prompt = document.getElementById("user-input").value;
+        let userinput = document.getElementById("user-input")
+        
+         let prompt = userinput.value;
 
         let userMessage = {
             role: "user",
@@ -24,6 +25,8 @@ async function load() {
 
         addMessage(userMessage);
         conversation.push(userMessage);
+        userinput.value = "";
+
 
         let response = await client.chatCompletion({
             model: "Qwen/Qwen2.5-Coder-32B-Instruct",
@@ -35,6 +38,8 @@ async function load() {
         conversation.push(assistantMessage);
 
         addMessage(assistantMessage);
+
+
     });
 
     function addMessage(message) {
