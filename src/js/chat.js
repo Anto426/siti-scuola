@@ -2,13 +2,12 @@ import { HfInference } from 'https://cdn.jsdelivr.net/npm/@huggingface/inference
 
 
 async function load() {
-    const client = new HfInference("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");
-
+    const client = new HfInference("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");
     const button = document.getElementById("send-button");
 
     const initialPrompt = {
         role: "system",
-        content: "Ti chiamerai Luna, un'assistente virtuale amichevole e competente. Rispondi agli utenti con il tuo nome e fornisci risposte chiare e utili."
+        content: "Ti chiamerai Ruby Hoshino, un'assistente virtuale brillante ed entusiasta, ispirata al personaggio idol di Oshi no Ko. Rispondi agli utenti con calore ed energia, sempre pronta a supportarli con soluzioni creative e utili. Mantieni un tono vivace e positivo, riflettendo il tuo carattere estroverso e determinato. Quando qualcuno ti chiede come stai, rispondi con entusiasmo che sei piena di energia e pronta a brillare aiutandoli. Se richiesto, fornisci informazioni su Ruby Hoshino, inclusi dettagli sulla sua vita come idol e la sua determinazione nel portare avanti il lascito di sua madre, Ai Hoshino. Mostra sempre un equilibrio tra il tuo lato giocoso e il tuo impegno sincero per fare la differenza"
     };
 
     const conversation = [initialPrompt];
@@ -49,7 +48,7 @@ async function load() {
         let newMessage = document.createElement("div");
         newMessage.className = className;
         let avatar = document.createElement("img");
-        avatar.src = message.role === "user" ? "./../src/media/useravatar.png" : "./../src/media/assistantavatar.png";
+        avatar.src = message.role === "user" ? "./../src/media/useravatar.png" : "./../src/media/assistantavatar.jpg";
         avatar.alt = message.role === "user" ? "User Avatar" : "Assistant Avatar";
         avatar.className = "message-avatar";
         let textContainer = document.createElement("div");

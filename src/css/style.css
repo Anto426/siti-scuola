@@ -399,9 +399,7 @@ button:hover {
     flex-direction: row;
 }
 
-/* Assistant's message and typing indicator */
-.assistant-message,
-.typing-indicator {
+.assistant-message {
     background-color: var(--color-primary);
     color: #fff;
     align-self: flex-end;
