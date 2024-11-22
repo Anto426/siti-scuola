@@ -3,36 +3,38 @@ import { HfInference } from 'https://cdn.jsdelivr.net/npm/@huggingface/inference
 
 
 async function load() {
-
     const client = new HfInference("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");
 
     const button = document.getElementById("send-button");
 
+    const initialPrompt = {
+        role: "system",
+        content: "Ti chiamerai Luna. Rispondi agli utenti con il tuo nome."
+    };
+
+    const conversation = [initialPrompt];
 
     button.addEventListener("click", async () => {
-
         let prompt = document.getElementById("user-input").value;
 
-
-
-        let message = {
-            model: "Qwen/Qwen2.5-Coder-32B-Instruct",
-            messages: [
-                {
-                    role: "user",
-                    content: prompt
-                }
-            ],
-            max_tokens: 500
+        let userMessage = {
+            role: "user",
+            content: prompt
         };
 
-        addMessage(message.messages[0]);
+        addMessage(userMessage);
+        conversation.push(userMessage);
 
-        let response = await client.chatCompletion(message);
+        let response = await client.chatCompletion({
+            model: "Qwen/Qwen2.5-Coder-32B-Instruct",
+            messages: conversation,
+            max_tokens: 500
+        });
 
-        addMessage(response.choices[0].message);
+        const assistantMessage = response.choices[0].message;
+        conversation.push(assistantMessage);
 
-
+        addMessage(assistantMessage);
     });
 
     function addMessage(message) {
@@ -53,9 +55,6 @@ async function load() {
         container.appendChild(newMessage);
         container.scrollTop = container.scrollHeight;
     }
-
-
 }
-
 
 export { load };
