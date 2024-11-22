@@ -42,12 +42,6 @@ async function loadChat() {
         document.getElementById("chat-container").replaceChildren();
     });
 
-    speakerbutton.addEventListener("click", async () => {
-        startSpeechRecognition("speaker-button", "chat-container");
-        console.log("Speech recognition started");
-        chatcontainer.lastChild.scrollIntoView().value
-        asktoModell();
-    });
 
     async function asktoModell() {
         try {
