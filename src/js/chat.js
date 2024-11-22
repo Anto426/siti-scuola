@@ -1,44 +1,61 @@
-const apiKey = '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';
-const model = 'meta-llama/Llama-3.2-1B';
 
-function load() {
-    document.getElementById('send-button').addEventListener('click', async () => {
+import { HfInference } from 'https://cdn.jsdelivr.net/npm/@huggingface/inference@2.8.1/+esm';
 
-        prompt = `
-        Rispondi in italiano in modo chiaro e dettagliato. Se la domanda riguarda un argomento tecnico, spiega i concetti in modo semplice ma completo. Evita risposte troppo brevi e cerca di fornire esempi pratici se possibile.
-        
-        Domanda: ${document.getElementById('user-input').value}
-        `;
 
-        const response = await fetch('https://api-inference.huggingface.co/models/' + model, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${apiKey}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                inputs: prompt,
-                max_tokens: 500
-            })
-        });
+async function load() {
 
-        if (!response.ok) {
-            const error = await response.json();
-            console.error('Errore:', error);
-            document.getElementById('generatedText').innerText = 'Errore nella generazione del testo';
-        } else {
-            const result = await response.json();
-            const generatedText = result[0].generated_text;
-            const indiceRisposta = result.indexOf("Risposta:");
-    
-            if (indiceRisposta === -1) {
-                return 'Nessuna risposta trovata';
-            }
-        
-            const risposta = result.slice(indiceRisposta + 9).trim(); 
-            
-            console.log(risposta);
-        }
+    const client = new HfInference("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");
+
+    const button = document.getElementById("send-button");
+
+
+    button.addEventListener("click", async () => {
+
+        let prompt = document.getElementById("user-input").value;
+
+
+
+        let message = {
+            model: "Qwen/Qwen2.5-Coder-32B-Instruct",
+            messages: [
+                {
+                    role: "user",
+                    content: prompt
+                }
+            ],
+            max_tokens: 500
+        };
+
+        addMessage(message.messages[0]);
+
+        let response = await client.chatCompletion(message);
+
+        addMessage(response.choices[0].message);
+
+
     });
+
+    function addMessage(message) {
+        console.log(message);
+        let className = message.role === "user" ? "users-message" : "assistant-message";
+        let container = document.getElementById("chat-container");
+        let newMessage = document.createElement("div");
+        newMessage.className = className;
+        let avatar = document.createElement("img");
+        avatar.src = message.role === "user" ? "./../src/media/useravatar.png" : "./../src/media/assistantavatar.png";
+        avatar.alt = message.role === "user" ? "User Avatar" : "Assistant Avatar";
+        avatar.className = "message-avatar";
+        let textContainer = document.createElement("div");
+        textContainer.className = "message-text";
+        textContainer.textContent = message.content;
+        newMessage.appendChild(avatar);
+        newMessage.appendChild(textContainer);
+        container.appendChild(newMessage);
+        container.scrollTop = container.scrollHeight;
+    }
+
+
 }
 
+
+export { load };

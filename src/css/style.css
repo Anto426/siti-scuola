@@ -377,58 +377,55 @@ button:hover {
 
 
 
-.users-message, .assistant-message, .typing-indicator {
+.users-message,
+.assistant-message,
+.typing-indicator {
     display: flex;
     align-items: center;
     padding: 12px 20px;
     border-radius: 12px;
     box-shadow: 0 4px 15px var(--color-box-shadow);
     max-width: 60%;
-    word-wrap: break-word;
+    overflow-wrap: break-word; /* Updated for better compatibility */
     font-size: 16px;
     line-height: 1.5;
 }
 
+/* User's message */
 .users-message {
     background-color: #f4f7fb;
-    color: #000;
+    color: var(--color-text);
     align-self: flex-start;
     flex-direction: row;
-    /* Avatar a sinistra */
 }
 
-.assistant-message {
+/* Assistant's message and typing indicator */
+.assistant-message,
+.typing-indicator {
+    background-color: var(--color-primary);
+    color: #fff;
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.typing-indicator {
     background-color: #50fa7b;
     color: #fff;
     align-self: flex-end;
     flex-direction: row-reverse;
-    /* Avatar a destra */
-}
-
-.typing-indicator {
-    background-color: #f4f7fb;
-    color: #000;
-    align-self: flex-start;
-    flex-direction: row;
-    /* Avatar a sinistra */
 }
 
 .message-avatar {
     width: 40px;
-    /* Dimensione immagine */
     height: 40px;
     border-radius: 50%;
-    /* Forma circolare */
     margin: 0 10px;
-    /* Spaziatura intorno all'immagine */
     object-fit: cover;
-    /* Assicura che l'immagine sia proporzionata */
 }
 
 .message-text {
     max-width: 100%;
     word-wrap: break-word;
-    /* Testo ben gestito */
 }
 
 /* Layout Responsivo */
