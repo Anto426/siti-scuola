@@ -1,7 +1,7 @@
-/* Font familiare da Google Fonts */
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;500;700&display=swap');
 
-/* Definizione delle variabili per il colore */
+/* Color Variables */
 :root {
     --color-primary: #50fa7b;
     --color-primary-light: #4cd97f;
@@ -17,7 +17,7 @@
     --color-box-shadow: rgba(0, 0, 0, 0.1);
 }
 
-/* Reset globale */
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
@@ -25,7 +25,7 @@
     font-family: 'Open Sans', Arial, sans-serif;
 }
 
-/* Corpo della pagina */
+/* Body */
 body {
     background-color: var(--color-background);
     color: var(--color-text);
@@ -364,6 +364,7 @@ button:hover {
     height: 56vh;
     max-height: 56vh;
     overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
 /* Custom scrollbar */
@@ -383,11 +384,6 @@ button:hover {
 
 .message-container::-webkit-scrollbar-thumb:hover {
     background: var(--color-primary-light);
-}
-
-/* Smooth scrolling */
-.message-container {
-    scroll-behavior: smooth;
 }
 
 .user-message,

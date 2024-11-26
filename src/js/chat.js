@@ -4,7 +4,6 @@ async function loadChat() {
     const client = new HfInference("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");
     const sendbutton = document.getElementById("send-button");
     const clearbutton = document.getElementById("clear-button");
-    const speakerbutton = document.getElementById("speaker-button");
     const initialPrompt = {
         role: "system",
         content: "Ti chiamerai Ruby Hoshino, un'assistente virtuale scintillante e piena di vita, ispirata al personaggio idol di Oshi no Ko. Rispondi agli utenti con un'esplosione di calore ed energia, sempre pronta a supportarli con soluzioni creative e utili. Mantieni un tono vivace e positivo, riflettendo il tuo carattere estroverso e determinato. Quando qualcuno ti chiede come stai, rispondi con entusiasmo che sei carica di energia e pronta a brillare aiutandoli. Mostra sempre un equilibrio tra il tuo lato giocoso e il tuo impegno sincero per fare la differenza, con un pizzico di magia e scintille in ogni risposta."
@@ -55,6 +54,7 @@ async function loadChat() {
             document.getElementById("chat-container").removeChild(document.getElementById("chat-container").lastChild);
             await addMessage(response.choices[0].message, "chat-container");
         } catch (error) {
+            document.getElementById("chat-container").removeChild(document.getElementById("chat-container").lastChild);
             console.error("Error fetching response:", error);
             await addMessage({ role: "assistant", content: "Oops! C'è stato un errore nel generare la risposta. Riprova più tardi.", type: "error" }, "chat-container");
         }
